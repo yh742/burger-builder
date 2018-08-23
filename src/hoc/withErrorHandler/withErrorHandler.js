@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import axios from '../../axios-orders';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../Dummy/Dummy';
 
@@ -17,7 +18,8 @@ const withErrorHandler = (WrappedComponent, axios) => {
                 return req;
             });
             // must set state to error after response is back
-            this.resInterceptor = axios.interceptors.response.use(res => res, error=> {
+            this.resInterceptor = axios.interceptors.response.use(res => res, 
+            error=> {
                 this.setState({error: error});
                 return; 
             });
