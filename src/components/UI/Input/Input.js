@@ -4,13 +4,19 @@ import classes from './Input.css';
 
 const input = (props) => {
     let inputElement = null;
+    const inputClasses = [classes.InputElement];
+
+    if (props.invalid && props.shouldValidate && props.touched) {
+        inputClasses.push(classes.Invalid);
+    }
+
     // use wrapper correctly to pass normal html attributes
     // for each type of element
     switch (props.elementType){
         case ('input'):
             inputElement = <input
                 onChange={props.changed} 
-                className={classes.InputElement} 
+                className={inputClasses.join(' ')}
                 {...props.elementConfig} 
                 value={props.value} />;
             break;
