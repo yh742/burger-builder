@@ -12,10 +12,6 @@ class Modal extends Component {
       // make sure the children aren't the same
   }
 
-  componentWillUpdate() {
-    console.log('[Modal] WillUpdate');
-  }
-
   render() {
     return (
       <Aux>
